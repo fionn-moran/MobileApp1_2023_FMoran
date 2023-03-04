@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     var newBooking = MainActivityModel()
-    var app : MainApp? = null
+    lateinit var app : MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
             newBooking.title = binding.bookingTitle.text.toString()
             newBooking.description = binding.description.text.toString()
             if (newBooking.title.isNotEmpty()) {
-                app!!.bookings.add(newBooking.copy())
+                app.bookings.add(newBooking.copy())
                 i("add Button Pressed: ${newBooking.title}")
                 for (i in app!!.bookings.indices)
-                { i("Booking[$i]:${this.app!!.bookings[i]}") }
+                { i("Booking[$i]:${this.app.bookings[i]}") }
             }
             else {
                 Toast.makeText(this,"Please Enter a title", Toast.LENGTH_LONG)
