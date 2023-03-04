@@ -40,7 +40,7 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/title"
+                    android:id="@+id/bookingTitle"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_margin="8dp"

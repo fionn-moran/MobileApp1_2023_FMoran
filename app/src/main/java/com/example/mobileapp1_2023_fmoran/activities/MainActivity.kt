@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.mobileapp1_2023_fmoran.R
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
+import com.example.mobileapp1_2023_fmoran.models.MainActivityModel
 import timber.log.Timber
 import timber.log.Timber.i
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var newBooking = MainActivityModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,9 +25,9 @@ class MainActivity : AppCompatActivity() {
         i("Main Activity started...")
 
         binding.btnAdd.setOnClickListener() {
-            val bookingTitle = binding.title.text.toString()
-            if (bookingTitle.isNotEmpty()) {
-                i("add Button Pressed: $bookingTitle")
+            newBooking.title = binding.bookingTitle.text.toString()
+            if (newBooking.title.isNotEmpty()) {
+                i("add Button Pressed: ${newBooking.title}")
             }
             else {
                 Toast.makeText(this,"Please Enter a title", Toast.LENGTH_LONG)
