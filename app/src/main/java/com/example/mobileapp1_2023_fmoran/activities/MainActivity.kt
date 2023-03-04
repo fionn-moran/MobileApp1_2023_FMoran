@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
                 i("add Button Pressed: ${newBooking.title}")
                 for (i in app!!.bookings.indices)
                 { i("Booking[$i]:${this.app.bookings[i]}") }
+                setResult(RESULT_OK)
+                finish()
             }
             else {
                 Toast.makeText(this,"Please Enter a title", Toast.LENGTH_LONG)
