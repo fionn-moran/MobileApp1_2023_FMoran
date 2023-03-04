@@ -1,7 +1,8 @@
-package com.example.mobileapp1_2023_fmoran
+package com.example.mobileapp1_2023_fmoran.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mobileapp1_2023_fmoran.R
 import timber.log.Timber
 import timber.log.Timber.i
 
