@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     var newBooking = MainActivityModel()
+    val bookings = ArrayList<MainActivityModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,11 @@ class MainActivity : AppCompatActivity() {
         binding.btnAdd.setOnClickListener() {
             newBooking.title = binding.bookingTitle.text.toString()
             if (newBooking.title.isNotEmpty()) {
+
+                bookings.add(newBooking.copy())
                 i("add Button Pressed: ${newBooking.title}")
+                for (i in bookings.indices)
+                { i("Booking[$i]:${this.bookings[i]}") }
             }
             else {
                 Toast.makeText(this,"Please Enter a title", Toast.LENGTH_LONG)
