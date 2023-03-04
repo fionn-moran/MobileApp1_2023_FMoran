@@ -2,6 +2,7 @@ package com.example.mobileapp1_2023_fmoran.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.mobileapp1_2023_fmoran.R
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
 import timber.log.Timber
@@ -22,7 +23,14 @@ class MainActivity : AppCompatActivity() {
         i("Main Activity started...")
 
         binding.btnAdd.setOnClickListener() {
-            i("add Button Pressed")
+            val bookingTitle = binding.title.text.toString()
+            if (bookingTitle.isNotEmpty()) {
+                i("add Button Pressed: $bookingTitle")
+            }
+            else {
+                Toast.makeText(this,"Please Enter a title", Toast.LENGTH_LONG)
+                    .show()
+            }
         }
     }
 }
