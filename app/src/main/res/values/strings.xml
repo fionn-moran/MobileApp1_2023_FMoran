@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobileApp1_2023_FMoran</string>
+    <string name="button_create">Create</string>
+    <string name="hint_createbtn">Title</string>
 </resources>
