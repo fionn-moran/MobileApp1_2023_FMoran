@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnAdd.setOnClickListener() {
             newBooking.title = binding.bookingTitle.text.toString()
+            newBooking.description = binding.description.text.toString()
             if (newBooking.title.isNotEmpty()) {
 
                 bookings.add(newBooking.copy())
