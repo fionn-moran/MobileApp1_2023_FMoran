@@ -13,5 +13,8 @@ class MainApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         i("Main Activity Started")
+
+        bookings.add(MainActivityModel("Jim"))
+        bookings.add(MainActivityModel("Dublin"))
     }
 }
