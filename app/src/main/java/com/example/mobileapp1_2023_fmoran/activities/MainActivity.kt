@@ -21,10 +21,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Timber.plant(Timber.DebugTree())
-
-        i("Main Activity started...")
-
         binding.btnAdd.setOnClickListener() {
             newBooking.title = binding.bookingTitle.text.toString()
             newBooking.description = binding.description.text.toString()
