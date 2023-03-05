@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 
 
         //Dialog for below is showing upon button click, but app crashes when a date is selected.
+        // reference: https://www.youtube.com/watch?v=LMPmybCTKDA
         /*
         val calendar = Calendar.getInstance()
         val day = calendar.get(Calendar.DAY_OF_MONTH)
