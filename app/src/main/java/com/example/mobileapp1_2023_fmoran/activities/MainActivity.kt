@@ -11,7 +11,6 @@ import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
 import com.example.mobileapp1_2023_fmoran.main.MainApp
 import com.example.mobileapp1_2023_fmoran.models.MealModel
 import timber.log.Timber.i
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +31,24 @@ class MainActivity : AppCompatActivity() {
         app = application as MainApp
         i("Main Activity Started")
 
+
+        //Dialog for below is showing upon button click, but app crashes when a date is selected.
+        /*
+        val calendar = Calendar.getInstance()
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val month = calendar.get(Calendar.MONTH)
+        val year = calendar.get(Calendar.YEAR)
+
+        binding.dateBtn.setOnClickListener {
+               val datePickerDialog = DatePickerDialog (
+                this, DatePickerDialog.OnDateSetListener { datePicker, myear, mmonth, mday ->
+                    binding.dateText.setText(mday + mmonth + myear)
+                }, year, month, day)
+            datePickerDialog.show()
+            }
+
+         */
+
         if (intent.hasExtra("booking_edit")) {
             edit = true
             newMeal = intent.extras?.getParcelable("booking_edit")!!
@@ -51,9 +68,16 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please Enter a Meal Name", Toast.LENGTH_LONG)
                     .show()
             }
-
             if (newMeal.description.isEmpty()) {
                 Toast.makeText(this, "Please Enter a Meal Description", Toast.LENGTH_LONG)
+                    .show()
+            }
+            if (newMeal.calories.isEmpty()) {
+                Toast.makeText(this, "Please Enter the number of calories", Toast.LENGTH_LONG)
+                    .show()
+            }
+            if (newMeal.protein.isEmpty()) {
+                Toast.makeText(this, "Please Enter the protein content", Toast.LENGTH_LONG)
                     .show()
             }
             else {
