@@ -1,5 +1,6 @@
 package com.example.mobileapp1_2023_fmoran.activities
 
+import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +30,18 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbarAdd)
         app = application as MainApp
         i("Main Activity Started")
+
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        binding.dateBtn.setOnClickListener() {
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+                binding.dateText.setText
+            },
+        }
+
 
         if (intent.hasExtra("booking_edit")) {
             edit = true
