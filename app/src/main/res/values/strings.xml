@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">MobileApp1_2023_FMoran</string>
     <string name="app_name2">Meal Planner + Tracker</string>
-    <string name="button_create">Create</string>
+    <string name="button_create">Add New Meal</string>
     <string name="hint_mealTitle">Enter Meal Name</string>
     <string name="hint_mealDesc">Enter short meal description</string>
-    <string name="save_booking"> Save Booking </string>
+    <string name="save_meal"> Save Meal </string>
     <string name="dateBtn">Select Meal Date</string>
     <string name="calories">Enter Total Meal Calories</string>
     <string name="protein">Enter Total Meal Protein Content (grams)</string>

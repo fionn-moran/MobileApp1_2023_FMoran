@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
             binding.description.setText(newMeal.description)
             binding.calories.setText(newMeal.calories)
             binding.protein.setText(newMeal.protein)
-            binding.btnAdd.setText(R.string.save_booking)
+            binding.btnAdd.setText(R.string.save_meal)
         }
 
         binding.btnAdd.setOnClickListener() {
