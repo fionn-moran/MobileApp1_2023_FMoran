@@ -14,16 +14,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileapp1_2023_fmoran.R
 import com.example.mobileapp1_2023_fmoran.adapters.BookingAdapter
+import com.example.mobileapp1_2023_fmoran.adapters.BookingListener
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityBookingListBinding
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
 import com.example.mobileapp1_2023_fmoran.databinding.BookingCardViewBinding
 import com.example.mobileapp1_2023_fmoran.main.MainApp
 import com.example.mobileapp1_2023_fmoran.models.MainActivityModel
 
-class BookingList : AppCompatActivity() {
+class BookingList : AppCompatActivity(), BookingListener {
 
-    lateinit var app : MainApp
-    private lateinit var binding : ActivityBookingListBinding
+    lateinit var app: MainApp
+    private lateinit var binding: ActivityBookingListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +37,8 @@ class BookingList : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-       // binding.recyclerView.adapter = BookingAdapter(app.bookings)
-        binding.recyclerView.adapter = BookingAdapter(app.bookings.findAll())
+        // binding.recyclerView.adapter = BookingAdapter(app.bookings)
+        binding.recyclerView.adapter = BookingAdapter(app.bookings.findAll(),this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,9 +61,25 @@ class BookingList : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
-                (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.bookings.findAll().size)
+                (binding.recyclerView.adapter)?.notifyItemRangeChanged(
+                    0,
+                    app.bookings.findAll().size)
             }
         }
 
+    override fun OnBookingClick(booking: MainActivityModel) {
+        val launcherIntent = Intent(this, MainActivity::class.java)
+        getClickResult.launch(launcherIntent)
+    }
+
+    private val getClickResult =
+        registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) {
+            if (it.resultCode == Activity.RESULT_OK) {
+                (binding.recyclerView.adapter)?.notifyItemRangeChanged(
+                    0,
+                    app.bookings.findAll().size)
+            }
+        }
 }
