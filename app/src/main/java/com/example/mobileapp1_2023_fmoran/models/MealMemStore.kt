@@ -33,8 +33,13 @@ class MealMemStore : MealStore {
         }
     }
 
+    //Delete function
     override fun delete(meal: MealModel) {
-        TODO("Not yet implemented")
+        var foundMeal: MealModel? = meals.find { p -> p.id == meal.id }
+        if (foundMeal != null) {
+            meals.remove(foundMeal)
+            logAll()
+        }
     }
 
     private fun logAll() {

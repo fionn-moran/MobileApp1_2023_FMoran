@@ -11,6 +11,7 @@ import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
 import com.example.mobileapp1_2023_fmoran.main.MainApp
 import com.example.mobileapp1_2023_fmoran.models.MealModel
 import timber.log.Timber.i
+import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -31,18 +32,6 @@ class MainActivity : AppCompatActivity() {
         app = application as MainApp
         i("Main Activity Started")
 
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-        binding.dateBtn.setOnClickListener() {
-            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
-                binding.dateText.setText
-            },
-        }
-
-
         if (intent.hasExtra("booking_edit")) {
             edit = true
             newMeal = intent.extras?.getParcelable("booking_edit")!!
@@ -61,7 +50,13 @@ class MainActivity : AppCompatActivity() {
             if (newMeal.title.isEmpty()) {
                 Toast.makeText(this, "Please Enter a Meal Name", Toast.LENGTH_LONG)
                     .show()
-            } else {
+            }
+
+            if (newMeal.description.isEmpty()) {
+                Toast.makeText(this, "Please Enter a Meal Description", Toast.LENGTH_LONG)
+                    .show()
+            }
+            else {
                 if (edit) {
                     app.meals.update(newMeal.copy())
                 } else {
