@@ -36,7 +36,8 @@ class BookingList : AppCompatActivity() {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = BookingAdapter(app.bookings)
+       // binding.recyclerView.adapter = BookingAdapter(app.bookings)
+        binding.recyclerView.adapter = BookingAdapter(app.bookings.findAll())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,7 +61,7 @@ class BookingList : AppCompatActivity() {
         ) {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.
-                notifyItemRangeChanged(0,app.bookings.size)
+                notifyItemRangeChanged(0,app.bookings.findAll().size)
             }
         }
 

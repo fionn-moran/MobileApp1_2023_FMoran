@@ -32,10 +32,8 @@ class MainActivity : AppCompatActivity() {
             newBooking.title = binding.bookingTitle.text.toString()
             newBooking.description = binding.description.text.toString()
             if (newBooking.title.isNotEmpty()) {
-                app.bookings.add(newBooking.copy())
+                app.bookings.create(newBooking.copy())
                 i("add Button Pressed: ${newBooking.title}")
-                for (i in app!!.bookings.indices)
-                { i("Booking[$i]:${this.app.bookings[i]}") }
                 setResult(RESULT_OK)
                 finish()
             }
