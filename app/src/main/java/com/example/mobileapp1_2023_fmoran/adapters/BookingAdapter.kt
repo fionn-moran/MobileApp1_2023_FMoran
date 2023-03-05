@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mobileapp1_2023_fmoran.databinding.BookingCardViewBinding
-import com.example.mobileapp1_2023_fmoran.models.MainActivityModel
+import com.example.mobileapp1_2023_fmoran.models.BookingModel
 
 interface BookingListener {
-    fun OnBookingClick(booking: MainActivityModel)
+    fun OnBookingClick(booking: BookingModel)
 }
 
-class BookingAdapter constructor(private var bookings: List<MainActivityModel>, private val listener: BookingListener) :
+class BookingAdapter constructor(private var bookings: List<BookingModel>, private val listener: BookingListener) :
     RecyclerView.Adapter<BookingAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -30,9 +30,11 @@ class BookingAdapter constructor(private var bookings: List<MainActivityModel>, 
     class MainHolder(private val binding : BookingCardViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(booking: MainActivityModel, listener: BookingListener) {
+        fun bind(booking: BookingModel, listener: BookingListener) {
             binding.title.text = booking.title
             binding.description.text = booking.description
+            binding.calories.text = booking.calories
+            binding.protein.text = booking.protein
             binding.root.setOnClickListener { listener.OnBookingClick(booking) }
         }
     }
