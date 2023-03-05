@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/item_cancel"
-        android:title="cancel menu"
-        app:showAsAction="always"/>
+        android:title="CANCEL"
+        app:showAsAction="always"
+        android:textColor="@color/black"/>
 </menu>
