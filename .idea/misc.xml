@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.1505" />
         <entry key="app/src/main/res/layout/activity_booking_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1336700439453125" />
-        <entry key="app/src/main/res/layout/booking_card_view.xml" value="0.20221606648199447" />
+        <entry key="app/src/main/res/layout/booking_card_view.xml" value="0.335" />
         <entry key="app/src/main/res/layout/test.xml" value="0.165" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_cancel.xml" value="0.1" />

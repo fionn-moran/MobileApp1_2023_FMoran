@@ -1,23 +1,21 @@
 package com.example.mobileapp1_2023_fmoran.activities
 
-import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.CalendarView
 import android.widget.Toast
 import com.example.mobileapp1_2023_fmoran.R
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityMainBinding
 import com.example.mobileapp1_2023_fmoran.main.MainApp
-import com.example.mobileapp1_2023_fmoran.models.BookingModel
+import com.example.mobileapp1_2023_fmoran.models.MealModel
 import timber.log.Timber.i
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var newBooking = BookingModel()
+    var newMeal = MealModel()
     lateinit var app: MainApp
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,30 +32,30 @@ class MainActivity : AppCompatActivity() {
 
         if (intent.hasExtra("booking_edit")) {
             edit = true
-            newBooking = intent.extras?.getParcelable("booking_edit")!!
-            binding.mealTitle.setText(newBooking.title)
-            binding.description.setText(newBooking.description)
-            binding.calories.setText(newBooking.calories)
-            binding.protein.setText(newBooking.protein)
+            newMeal = intent.extras?.getParcelable("booking_edit")!!
+            binding.mealTitle.setText(newMeal.title)
+            binding.description.setText(newMeal.description)
+            binding.calories.setText(newMeal.calories)
+            binding.protein.setText(newMeal.protein)
             binding.btnAdd.setText(R.string.save_booking)
         }
 
         binding.btnAdd.setOnClickListener() {
-            newBooking.title = binding.mealTitle.text.toString()
-            newBooking.description = binding.description.text.toString()
-            newBooking.calories = binding.calories.text.toString()
-            newBooking.protein = binding.protein.text.toString()
-            if (newBooking.title.isEmpty()) {
+            newMeal.title = binding.mealTitle.text.toString()
+            newMeal.description = binding.description.text.toString()
+            newMeal.calories = binding.calories.text.toString()
+            newMeal.protein = binding.protein.text.toString()
+            if (newMeal.title.isEmpty()) {
                 Toast.makeText(this, "Please Enter a Meal Name", Toast.LENGTH_LONG)
                     .show()
             } else {
                 if (edit) {
-                    app.bookings.update(newBooking.copy())
+                    app.meals.update(newMeal.copy())
                 } else {
-                    app.bookings.create(newBooking.copy())
+                    app.meals.create(newMeal.copy())
                 }
             }
-            i("add Button Pressed: ${newBooking.title}")
+            i("add Button Pressed: ${newMeal.title}")
             setResult(RESULT_OK)
             finish()
         }

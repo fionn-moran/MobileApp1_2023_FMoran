@@ -9,13 +9,13 @@ import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mobileapp1_2023_fmoran.R
-import com.example.mobileapp1_2023_fmoran.adapters.BookingAdapter
-import com.example.mobileapp1_2023_fmoran.adapters.BookingListener
+import com.example.mobileapp1_2023_fmoran.adapters.MealAdapter
+import com.example.mobileapp1_2023_fmoran.adapters.MealListener
 import com.example.mobileapp1_2023_fmoran.databinding.ActivityBookingListBinding
 import com.example.mobileapp1_2023_fmoran.main.MainApp
-import com.example.mobileapp1_2023_fmoran.models.BookingModel
+import com.example.mobileapp1_2023_fmoran.models.MealModel
 
-class BookingList : AppCompatActivity(), BookingListener {
+class MealList : AppCompatActivity(), MealListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityBookingListBinding
@@ -32,7 +32,7 @@ class BookingList : AppCompatActivity(), BookingListener {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         // binding.recyclerView.adapter = BookingAdapter(app.bookings)
-        binding.recyclerView.adapter = BookingAdapter(app.bookings.findAll(),this)
+        binding.recyclerView.adapter = MealAdapter(app.meals.findAll(),this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -57,13 +57,13 @@ class BookingList : AppCompatActivity(), BookingListener {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.notifyItemRangeChanged(
                     0,
-                    app.bookings.findAll().size)
+                    app.meals.findAll().size)
             }
         }
 
-    override fun OnBookingClick(booking: BookingModel) {
+    override fun onBookingClick(meal: MealModel) {
         val launcherIntent = Intent(this, MainActivity::class.java)
-        launcherIntent.putExtra("booking_edit", booking)
+        launcherIntent.putExtra("booking_edit", meal)
         getClickResult.launch(launcherIntent)
     }
 
@@ -74,7 +74,7 @@ class BookingList : AppCompatActivity(), BookingListener {
             if (it.resultCode == Activity.RESULT_OK) {
                 (binding.recyclerView.adapter)?.notifyItemRangeChanged(
                     0,
-                    app.bookings.findAll().size)
+                    app.meals.findAll().size)
             }
         }
 }

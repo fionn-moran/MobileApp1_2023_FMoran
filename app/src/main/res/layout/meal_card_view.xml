@@ -43,6 +43,13 @@
             android:layout_below="@id/calories"
             tools:text="Protein" />
 
+        <Button
+            android:id="@+id/deleteBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_baseline_remove_circle_24"
+            android:layout_below="@id/protein" />
+
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

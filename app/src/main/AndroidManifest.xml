@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MobileApp1_2023_FMoran">
         <activity
-            android:name=".activities.BookingList"
+            android:name=".activities.MealList"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
