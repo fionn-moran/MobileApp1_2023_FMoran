@@ -8,6 +8,7 @@ import com.example.mobileapp1_2023_fmoran.models.MealModel
 
 interface MealListener {
     fun onBookingClick(meal: MealModel)
+    fun onDeleteClick(meal: MealModel, position: Int) // position: Int?
 }
 
 class MealAdapter constructor(private var meals: List<MealModel>, private val listener: MealListener) :
@@ -36,6 +37,7 @@ class MealAdapter constructor(private var meals: List<MealModel>, private val li
             binding.calories.text = meal.calories
             binding.protein.text = meal.protein
             binding.root.setOnClickListener { listener.onBookingClick(meal) }
+            binding.deleteBtn.setOnClickListener { listener.onDeleteClick(meal, adapterPosition)} // position?
         }
     }
 }

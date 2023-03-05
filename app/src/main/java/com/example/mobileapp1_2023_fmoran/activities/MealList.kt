@@ -67,6 +67,15 @@ class MealList : AppCompatActivity(), MealListener {
         getClickResult.launch(launcherIntent)
     }
 
+    override fun onDeleteClick(meal: MealModel, position: Int) { //, position
+        // calls delete function from MealMemStore
+        app.meals.delete(meal)
+        // Below notifies that a card has been removed, refreshing the list.
+        // https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.Adapter
+        (binding.recyclerView.adapter)?.notifyItemRemoved(position)
+    }
+
+
     private val getClickResult =
         registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
