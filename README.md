@@ -1,4 +1,6 @@
-Meal Planner / Tracker
+# Mobile App Assignment 1 - Fionn Moran
+
+ ## Meal Planner / Tracker
 
 Features;
 
